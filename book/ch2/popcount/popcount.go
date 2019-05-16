@@ -29,12 +29,12 @@ func PopCountLoop(x uint64) int {
 }
 
 func PopCountShift(x uint64) int {
-	c := 0
+	var c uint64
 	for i := 0; i < 64; i++ {
-		c += int(x & 1)
+		c += x & 1
 		x = x >> 1
 	}
-	return c
+	return int(c)
 }
 
 func PopCountClear(x uint64) (c int) {
